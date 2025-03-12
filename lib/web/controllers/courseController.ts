@@ -7,7 +7,7 @@ export class CourseController {
       const courses = await CourseService.getAllCourses();
       res.json(courses);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: (error as Error).message });
     }
   }
 
@@ -17,7 +17,7 @@ export class CourseController {
       if (!course) return res.status(404).json({ message: "Course not found" });
       res.json(course);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: (error as Error).message });
     }
   }
 
@@ -26,7 +26,7 @@ export class CourseController {
       const newCourse = await CourseService.createCourse(req.body);
       res.status(201).json(newCourse);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: (error as Error).message });
     }
   }
 
@@ -35,7 +35,7 @@ export class CourseController {
       await CourseService.updateCourse(req.params.id, req.body);
       res.json({ message: "Course updated successfully" });
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: (error as Error).message });
     }
   }
 
@@ -44,7 +44,7 @@ export class CourseController {
       await CourseService.deleteCourse(req.params.id);
       res.json({ message: "Course deleted successfully" });
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: (error as Error).message });
     }
   }
 }

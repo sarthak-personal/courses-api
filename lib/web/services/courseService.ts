@@ -1,4 +1,4 @@
-import { dynamoDB, TABLE_NAME } from '../config/dynamodb';
+import { dynamoDB, TABLE_NAME } from '../../config/dynamodb';
 import { Course } from '../models/course';
 import { v4 as uuidv4 } from 'uuid';
 
